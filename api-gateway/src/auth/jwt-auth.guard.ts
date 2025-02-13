@@ -17,7 +17,7 @@ export class JwtAuthGuard implements CanActivate {
     try {
       const user = await firstValueFrom(this.authClient.send({ cmd: "verify_token" }, token));
 
-      // Добавляем пользователя в request для дальнейшего использования
+      // Add the user to Request for further use
       request.user = user;
       return true;
     } catch (error) {
