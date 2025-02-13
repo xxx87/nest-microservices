@@ -55,13 +55,15 @@ The user service is responsible for:
 ## Installation and Setup
 
 1. Clone the repository:
-   \`\`\`bash
-   git clone <repository-url>
-   cd nestjs-microservices
-   \`\`\`
+
+```bash
+ git clone <repository-url>
+ cd nestjs-microservices
+```
 
 2. Install dependencies for each service:
-   \`\`\`bash
+
+```bash
 
 # API Gateway
 
@@ -77,10 +79,11 @@ yarn install
 
 cd ../user-service
 yarn install
-\`\`\`
+```
 
 3. Set up the database:
-   \`\`\`bash
+
+```bash
 
 # In user-service directory
 
@@ -93,10 +96,12 @@ cp .env.example .env
 # Initialize database
 
 yarn prisma migrate dev
-\`\`\`
+
+```
 
 4. Start the services (each in a separate terminal):
-   \`\`\`bash
+
+```bash
 
 # Auth Service
 
@@ -112,7 +117,8 @@ yarn start:dev
 
 cd api-gateway
 yarn start:dev
-\`\`\`
+
+```
 
 ## API Endpoints
 
@@ -120,7 +126,7 @@ yarn start:dev
 
 #### Login
 
-\`\`\`http
+```http
 POST /auth/login
 Content-Type: application/json
 
@@ -128,23 +134,27 @@ Content-Type: application/json
 "username": "john",
 "password": "Aa12345678!"
 }
-\`\`\`
+```
 
 Response:
-\`\`\`json
+
+```json
 {
-"access_token": "eyJhbGciOiJIUzI1..."
+  "access_token": "eyJhbGciOiJIUzI1..."
 }
-\`\`\`
+```
 
 ### Users
 
 All user endpoints require JWT token in the header:
-\`Authorization: Bearer <your-token>\`
+
+```bash
+Authorization: Bearer <your-token>
+```
 
 #### Create User
 
-\`\`\`http
+```http
 POST /users
 Content-Type: application/json
 
@@ -152,36 +162,36 @@ Content-Type: application/json
 "email": "user@example.com",
 "name": "John Doe"
 }
-\`\`\`
+```
 
 #### Get User
 
-\`\`\`http
+```http
 GET /users/:id
-\`\`\`
+```
 
 #### Update User
 
-\`\`\`http
+```http
 PUT /users/:id
 Content-Type: application/json
 
 {
 "name": "Updated Name"
 }
-\`\`\`
+```
 
 #### Delete User
 
-\`\`\`http
+```http
 DELETE /users/:id
-\`\`\`
+```
 
 #### List All Users
 
-\`\`\`http
+```http
 GET /users
-\`\`\`
+```
 
 ## Swagger Documentation
 
@@ -196,7 +206,7 @@ Swagger UI is available at: \`http://localhost:3000/api\`
 
 ## Project Structure
 
-\`\`\`
+```
 nestjs-microservices/
 ├── api-gateway/
 │ ├── src/
@@ -224,7 +234,7 @@ nestjs-microservices/
 │ ├── migrations/
 │ └── schema.prisma
 └── package.json
-\`\`\`
+```
 
 ## Test Credentials
 
